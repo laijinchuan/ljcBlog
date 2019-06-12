@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ljc.blog.mapper.AircleMapper">
+  <resultMap id="BaseResultMap" type="com.ljc.blog.entity.Aircle">
+    <id column="Fid" jdbcType="VARCHAR" property="fid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="context" jdbcType="VARCHAR" property="context" />
+    <result column="view_count" jdbcType="VARCHAR" property="viewCount" />
+    <result column="write_time" jdbcType="TIMESTAMP" property="writeTime" />
+    <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Fid, title, context, view_count, write_time, group_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from aircle
+    where Fid = #{fid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from aircle
+    where Fid = #{fid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ljc.blog.entity.Aircle">
+    insert into aircle (Fid, title, context, 
+      view_count, write_time, group_id
+      )
+    values (#{fid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, 
+      #{viewCount,jdbcType=VARCHAR}, #{writeTime,jdbcType=TIMESTAMP}, #{groupId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ljc.blog.entity.Aircle">
+    insert into aircle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        Fid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="context != null">
+        context,
+      </if>
+      <if test="viewCount != null">
+        view_count,
+      </if>
+      <if test="writeTime != null">
+        write_time,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fid != null">
+        #{fid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null">
+        #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="viewCount != null">
+        #{viewCount,jdbcType=VARCHAR},
+      </if>
+      <if test="writeTime != null">
+        #{writeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ljc.blog.entity.Aircle">
+    update aircle
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="context != null">
+        context = #{context,jdbcType=VARCHAR},
+      </if>
+      <if test="viewCount != null">
+        view_count = #{viewCount,jdbcType=VARCHAR},
+      </if>
+      <if test="writeTime != null">
+        write_time = #{writeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Fid = #{fid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ljc.blog.entity.Aircle">
+    update aircle
+    set title = #{title,jdbcType=VARCHAR},
+      context = #{context,jdbcType=VARCHAR},
+      view_count = #{viewCount,jdbcType=VARCHAR},
+      write_time = #{writeTime,jdbcType=TIMESTAMP},
+      group_id = #{groupId,jdbcType=VARCHAR}
+    where Fid = #{fid,jdbcType=VARCHAR}
+  </update>
+</mapper>

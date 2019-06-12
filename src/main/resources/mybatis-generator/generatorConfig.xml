@@ -44,6 +44,13 @@
             <!--<columnRenamingRule searchString="^D_"
                                 replaceString=""/>-->
         </table>
+        <table tableName="aircle_group" domainObjectName="AircleGroup"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <!--<columnRenamingRule searchString="^D_"
+                                replaceString=""/>-->
+        </table>
 
     </context>
 </generatorConfiguration>
