@@ -14,7 +14,7 @@ public interface AircleGroupService
    AircleGroup insertGroup(AircleGroup aircleGroup);
 
     /**
-     * 查找所有分组
+     * 查看所有分组
      * @return
      */
    List<AircleGroup> selectAll();

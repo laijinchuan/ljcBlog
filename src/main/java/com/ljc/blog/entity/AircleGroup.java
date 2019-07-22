@@ -12,7 +12,12 @@ public class AircleGroup {
     private String groupIcon;
 
     private Date registerTime;
+    public AircleGroup(){
 
+    }
+    public   AircleGroup(String  fid){
+       this.fid=fid;
+    }
     public String getFid() {
         return fid;
     }

@@ -1,47 +1,42 @@
 package com.ljc.blog.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class User {
     private String userId;
-    private String  username;
-    private String  password;
-    private Date    registerDate;
+
+    private String userName;
+
+    private String userPass;
+
     private String userEmail;
-    private Date   userLastLoginDate;
+
+    private Date userRegisterTime;
+
+    private Date userLastLoginTime;
 
     public String getUserId() {
         return userId;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPass() {
+        return userPass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
+    public void setUserPass(String userPass) {
+        this.userPass = userPass == null ? null : userPass.trim();
     }
 
     public String getUserEmail() {
@@ -49,14 +44,22 @@ public class User implements Serializable {
     }
 
     public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+        this.userEmail = userEmail == null ? null : userEmail.trim();
     }
 
-    public Date getUserLastLoginDate() {
-        return userLastLoginDate;
+    public Date getUserRegisterTime() {
+        return userRegisterTime;
     }
 
-    public void setUserLastLoginDate(Date userLastLoginDate) {
-        this.userLastLoginDate = userLastLoginDate;
+    public void setUserRegisterTime(Date userRegisterTime) {
+        this.userRegisterTime = userRegisterTime;
+    }
+
+    public Date getUserLastLoginTime() {
+        return userLastLoginTime;
+    }
+
+    public void setUserLastLoginTime(Date userLastLoginTime) {
+        this.userLastLoginTime = userLastLoginTime;
     }
 }

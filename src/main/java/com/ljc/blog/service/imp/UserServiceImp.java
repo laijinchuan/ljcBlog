@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -15,10 +16,15 @@ public class UserServiceImp implements UserService {
     private UserMapper userMapper;
     @Override
     public User insertUser(User user) {
-        user.setUserLastLoginDate(new Date());
+        user.setUserLastLoginTime(new Date());
         UUID uuid = UUID.randomUUID();
         user.setUserId(uuid.toString());
-        userMapper.insertUser(user);
+        userMapper.insert(user);
         return user;
+    }
+
+    @Override
+    public List<User> selectAll() {
+        return null;
     }
 }

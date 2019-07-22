@@ -16,18 +16,18 @@
                         userId="root"
                         password="123"/>
 
-        <javaModelGenerator targetPackage="com.ljc.blog.entity"
+        <javaModelGenerator targetPackage="com.ljc.blog.autoGener.entity"
                             targetProject="C:\Users\ThinkPad\git\ForestBlog-master\myBlog2\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.ljc.blog.xml"
+        <sqlMapGenerator targetPackage="com.ljc.blog.autoGener.xml"
                          targetProject="C:\Users\ThinkPad\git\ForestBlog-master\myBlog2\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.ljc.blog.mapper"
+        <javaClientGenerator targetPackage="com.ljc.blog.autoGener.mapper"
                              targetProject="C:\Users\ThinkPad\git\ForestBlog-master\myBlog2\src\main\java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
@@ -44,13 +44,7 @@
             <!--<columnRenamingRule searchString="^D_"
                                 replaceString=""/>-->
         </table>
-        <table tableName="aircle_group" domainObjectName="AircleGroup"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <!--<columnRenamingRule searchString="^D_"
-                                replaceString=""/>-->
-        </table>
+
 
     </context>
 </generatorConfiguration>

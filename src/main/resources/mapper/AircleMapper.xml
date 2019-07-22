@@ -8,27 +8,31 @@
     <result column="view_count" jdbcType="VARCHAR" property="viewCount" />
     <result column="write_time" jdbcType="TIMESTAMP" property="writeTime" />
     <result column="group_id" jdbcType="VARCHAR" property="groupId" />
+    <result column="context_sum" jdbcType="VARCHAR" property="contextSum" />
   </resultMap>
   <sql id="Base_Column_List">
-    Fid, title, context, view_count, write_time, group_id
+    Fid, title, context, view_count, write_time, group_id, context_sum
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from aircle
     where Fid = #{fid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from aircle
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from aircle
     where Fid = #{fid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.ljc.blog.entity.Aircle">
-    insert into aircle (Fid, title, context, 
-      view_count, write_time, group_id
-      )
-    values (#{fid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, 
-      #{viewCount,jdbcType=VARCHAR}, #{writeTime,jdbcType=TIMESTAMP}, #{groupId,jdbcType=VARCHAR}
-      )
+    insert into aircle (Fid, title, context,
+      view_count, write_time, group_id,
+      context_sum)
+    values (#{fid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR},
+      #{viewCount,jdbcType=VARCHAR}, #{writeTime,jdbcType=TIMESTAMP}, #{groupId,jdbcType=VARCHAR},
+      #{contextSum,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ljc.blog.entity.Aircle">
     insert into aircle
@@ -51,6 +55,9 @@
       <if test="groupId != null">
         group_id,
       </if>
+      <if test="contextSum != null">
+        context_sum,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="fid != null">
@@ -70,6 +77,9 @@
       </if>
       <if test="groupId != null">
         #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="contextSum != null">
+        #{contextSum,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -91,6 +101,9 @@
       <if test="groupId != null">
         group_id = #{groupId,jdbcType=VARCHAR},
       </if>
+      <if test="contextSum != null">
+        context_sum = #{contextSum,jdbcType=VARCHAR},
+      </if>
     </set>
     where Fid = #{fid,jdbcType=VARCHAR}
   </update>
@@ -100,7 +113,8 @@
       context = #{context,jdbcType=VARCHAR},
       view_count = #{viewCount,jdbcType=VARCHAR},
       write_time = #{writeTime,jdbcType=TIMESTAMP},
-      group_id = #{groupId,jdbcType=VARCHAR}
+      group_id = #{groupId,jdbcType=VARCHAR},
+      context_sum = #{contextSum,jdbcType=VARCHAR}
     where Fid = #{fid,jdbcType=VARCHAR}
   </update>
 </mapper>

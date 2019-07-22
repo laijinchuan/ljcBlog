@@ -2,6 +2,8 @@ package com.ljc.blog.mapper;
 
 import com.ljc.blog.entity.Aircle;
 
+import java.util.List;
+
 public interface AircleMapper {
     int deleteByPrimaryKey(String fid);
 
@@ -14,4 +16,6 @@ public interface AircleMapper {
     int updateByPrimaryKeySelective(Aircle record);
 
     int updateByPrimaryKey(Aircle record);
+
+    List<Aircle> selectAll();
 }

@@ -1,6 +1,7 @@
 package com.ljc.blog.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Aircle {
     private String fid;
@@ -13,8 +14,27 @@ public class Aircle {
 
     private Date writeTime;
 
+    private String  contextSum;
+
+    public String getContextSum() {
+        return contextSum;
+    }
+
+    public void setContextSum(String contextSum) {
+        this.contextSum = contextSum;
+    }
+
+    public List<AircleGroup> getAircleGroupList() {
+        return aircleGroupList;
+    }
+
+    public void setAircleGroupList(List<AircleGroup> aircleGroupList) {
+        this.aircleGroupList = aircleGroupList;
+    }
+
     private String groupId;
 
+    private List<AircleGroup> aircleGroupList;
     public String getFid() {
         return fid;
     }

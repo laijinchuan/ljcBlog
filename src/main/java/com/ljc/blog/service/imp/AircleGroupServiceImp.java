@@ -23,7 +23,6 @@ public class AircleGroupServiceImp implements AircleGroupService {
 
     @Override
     public List<AircleGroup> selectAll() {
-        List<AircleGroup> aircleGroups = aircleGroupMapper.selectAll();
-        return aircleGroups;
+       return aircleGroupMapper.selectAll();
     }
 }
