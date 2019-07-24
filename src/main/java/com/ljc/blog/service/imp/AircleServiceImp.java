@@ -23,17 +23,7 @@ public class AircleServiceImp implements AircleService {
     @Override
     public List<Aircle> listAircle() {
         List<Aircle> aircles = aircleMapper.selectAll();
-        for (Aircle a:aircles){
-            List<AircleGroup> groupList=null;
-            if(a.getGroupId()!=null){
-                groupList=new ArrayList<AircleGroup>();
-                AircleGroup aircleGroup = aircleGroupMapper.selectByPrimaryKey(a.getGroupId());
-                groupList.add(aircleGroup);
-            }
-            if(groupList!=null){
-                a.setAircleGroupList(groupList);
-            }
-        }
+        aircleAddGroup(aircles);
         return aircles;
     }
 
@@ -52,6 +42,36 @@ public class AircleServiceImp implements AircleService {
         }
         return   aircleMapper.insert(aircle);
 
+    }
+
+    /**
+     * 根据组别查询文章
+     * @param groupId
+     * @return
+     */
+    @Override
+    public List<Aircle> selectAircleBySelective(String groupId) {
+        List<Aircle> aircles = aircleMapper.selectAircleBySelective(groupId);
+        aircleAddGroup(aircles);
+        return aircles;
+    }
+
+    /**
+     * 为每篇文章添加组别
+     * @param aircles
+     */
+    public  void aircleAddGroup( List<Aircle> aircles){
+        for (Aircle a:aircles){
+            List<AircleGroup> groupList=null;
+            if(a.getGroupId()!=null){
+                groupList=new ArrayList<AircleGroup>();
+                AircleGroup aircleGroup = aircleGroupMapper.selectByPrimaryKey(a.getGroupId());
+                groupList.add(aircleGroup);
+            }
+            if(groupList!=null){
+                a.setAircleGroupList(groupList);
+            }
+        }
     }
 }
 

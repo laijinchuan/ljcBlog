@@ -20,6 +20,10 @@
     <title>这是首页</title>
 </head>
 <body >
+<c:if test="${aircles==null}">
+
+</c:if>
+
 <div id="page" class="site" style="transform: none;">
     <%@ include file="part/header.jsp" %>
     <div id="content" class="site-content" style="transform: none;">
@@ -29,7 +33,7 @@
     </div>
     <div class="clear"></div>
     <rapid:block name="link"></rapid:block>
-    <%--<a href="/Aricle/insert">新增文章</a>
+   <%-- <a href="/Aricle/insert">新增文章</a>
     <button data-method="setTop" class="layui-btn">新增分组</button>--%>
     <%@ include file="part/footer.jsp" %>
 </div>
@@ -92,10 +96,10 @@
                 }*/
             });
         }}
-       /* $('.layui-btn').on('click', function(){
+        $('.layui-btn').on('click', function(){
             var othis = $(this), method = othis.data('method');
             active[method] ? active[method].call(this, othis) : '';
-        });*/
+        });
     });
 </script>
 </body>

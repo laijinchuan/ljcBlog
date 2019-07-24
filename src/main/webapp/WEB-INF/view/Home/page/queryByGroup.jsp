@@ -1,32 +1,13 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
-<rapid:override name="breadcrumb">
-<nav class="breadcrumb">
-    <div class="bull"><i class="fa fa-volume-up"></i></div>
-    <div id="scrolldiv">
-        <div class="scrolltext">
-            <ul style="margin-top: 0px;">
-                <c:forEach items="${aircles}" var="n">
-                    <li class="scrolltext-title">
-                    <a href=" " rel="bookmark">${a.aircleGroupList[a.aircleGroupList.size()-1].groupName}</a>
-                </li>
-                </c:forEach>
-            </ul>
-        </div>
-    </div>
-</nav>
-</rapid:override>
-    <rapid:override name="left">
+<rapid:override name="left">
     <div id="primary" class="content-area">
 
         <main id="main" class="site-main" role="main">
             <c:forEach items="${aircles}" var="a">
-
                 <article class="post type-post">
-
                     <figure class="thumbnail">
                         <a href="">
                             <img width="280" height="210"
@@ -40,7 +21,6 @@
                                 </a>
                             </span>
                     </figure>
-
                     <header class="entry-header">
                         <h2 class="entry-title">
                             <a href=""
@@ -49,7 +29,6 @@
                             </a>
                         </h2>
                     </header>
-
                     <div class="entry-content">
                         <div class="archive-content">
                                 ${a.contextSum}...
@@ -109,5 +88,5 @@
 
     </div>
 </rapid:override>
+<%@ include file="../public/framework.jsp" %>
 
-<%@ include file="public/framework.jsp" %>

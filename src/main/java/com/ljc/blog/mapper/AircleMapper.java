@@ -12,6 +12,12 @@ public interface AircleMapper {
     int insertSelective(Aircle record);
 
     Aircle selectByPrimaryKey(String fid);
+    /**
+     * 根据分类ID查询数据
+     * @param groupId 分类ID
+     * @return 文章列表
+     */
+    List<Aircle> selectAircleBySelective(String groupId );
 
     int updateByPrimaryKeySelective(Aircle record);
 

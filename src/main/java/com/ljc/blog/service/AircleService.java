@@ -13,4 +13,11 @@ public interface  AircleService {
 
     int insertAircle(Aircle aircle);
 
+    /**
+     *根据分组id查询所有文章
+     * @param groupId
+     * @return
+     */
+    List<Aircle>  selectAircleBySelective(String groupId);
+
 }

@@ -19,6 +19,12 @@
     from aircle
     where Fid = #{fid,jdbcType=VARCHAR}
   </select>
+  <select id="selectAircleBySelective" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+   <include refid="Base_Column_List"/>
+    from aircle
+   where  group_id=#{groupId,jdbcType=VARCHAR}
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select * from aircle
   </select>
